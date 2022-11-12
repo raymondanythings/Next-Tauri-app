@@ -4,7 +4,8 @@
     "beforeBuildCommand": "yarn build && yarn export",
     "beforeDevCommand": "yarn dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../out"
+    "distDir": "../out",
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "tauri-next-app",
@@ -12,7 +13,51 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": true,
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": false,
+        "exists": false,
+        "readDir": false,
+        "readFile": false,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": ["$APP/*", "$DOWNLOAD/*"],
+        "writeFile": true
+      },
+      "window": {
+        "all": false,
+        "center": false,
+        "close": false,
+        "create": false,
+        "hide": false,
+        "maximize": true,
+        "minimize": false,
+        "print": false,
+        "requestUserAttention": false,
+        "setAlwaysOnTop": false,
+        "setCursorGrab": false,
+        "setCursorIcon": false,
+        "setCursorPosition": false,
+        "setCursorVisible": false,
+        "setDecorations": false,
+        "setFocus": true,
+        "setFullscreen": false,
+        "setIcon": false,
+        "setMaxSize": false,
+        "setMinSize": false,
+        "setPosition": false,
+        "setResizable": false,
+        "setSize": true,
+        "setSkipTaskbar": false,
+        "setTitle": false,
+        "show": false,
+        "startDragging": false,
+        "unmaximize": false,
+        "unminimize": true
+      }
     },
     "bundle": {
       "active": true,
